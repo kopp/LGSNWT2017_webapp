@@ -1,7 +1,7 @@
 
 # A very simple Flask Hello World app for you to get started with...
 
-from flask import Flask
+from flask import Flask, request
 
 
 app = Flask(__name__)
@@ -22,6 +22,14 @@ n = 1
 def add():
     global n
     n = n + 1
+    return str(n)
+
+@app.route('/add_n', methods=["GET"])
+def add_n():
+    global n
+    p_as_text = request.args.get('p')
+    p_as_integer = int(p_as_text)
+    n = n + p_as_integer
     return str(n)
 
 @app.route('/sub')
