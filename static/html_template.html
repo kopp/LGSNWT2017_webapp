@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<!-- "unsichtbare" metadaten -->
+<head>
+    <meta charset="utf-8" />
+
+    <title>Unsere Eigene Website</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet"    type="text/css"     href="html_template_style.css" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon"          type="image/x-icon" href="favicon.ico" />
+
+    <meta name="description" content="Notes about HTML5 and CSS." />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="author" content="all: Michael Kopp; Michael.Kopp@lichtenstern.info" />
+    <meta name="robots" content="index, follow" />
+</head>
+
+<!-- der sichtbare Teil der Seite -->
+<body>
+
+  <!-- Header -->
+  <header>
+      <img src="https://github.com/kopp/Html5AndCssForTeaching/blob/master/logo.png?raw=true" />
+      <h1>Wir erstellen eine eigene Website mit HTML und CSS.</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="https://lgsachsenheim-my.sharepoint.com/:o:/g/personal/michael_kopp_lgsachsenheim_onmicrosoft_com/EvkqZswhaYdHr-mIgUNq83wB4dt18_08IuejIBTOX9jtAQ?e=SoSkpt">Notizen</a></li>
+    <li><a href="https://wiki.selfhtml.org/">Selfhtml</a></li>
+  </ul>
+  </nav>
+
+  <!-- eigentlicher Inhalt -->
+  <main>
+
+      <section>
+          <h2>HTML Syntax</h2>
+          <p>
+          HTML besteht aus Tags, die mit Klammern geschrieben werden, wie <code>&lt;section&gt;</code>.
+          Das erste Wort in der Klammer ist der <em>Name</em> des Tags.
+          Neben dem  Namen kann man auch <em>Attribute</em> verwenden, diese haben einen Wert, den man mit <code>=</code> in Anführungszeichen daran gesetzt hängt: <code>&lt;div class=&quot;wichtig&quot;&gt;</code>
+          </p>
+          <p>
+          Ein Tag hat meistens einen schließendes Gegenüber, das mit einem <code>/</code> beginnt: Zu <code>&lt;a&gt;</code> gehört <code>&lt;/a&gt;</code>, dazwischen ist der Inhalt der Tags (im Beispiel von <code>&lt;a&gt;</code> ist das der angezeigte Text von einem Link.
+          Manche Elemente schließen aber nichts ein, dann setzt man den <code>/</code> ans Ende des Tags, bspw. <code>&lt;img src="katze.png" /&gt;</code>.
+          </p>
+      </section>
+
+      <section>
+          <h2>Der Header</h2>
+          <p>
+          Am Anfang einer HTML Seite steht hauptsächlich "unsichtbares" HTML.
+          Es sorgt dafür, dass Webbrowser, Google und co verstehen, was in der Seite beschrieben wird.
+          </p>
+          <p>
+          Es ist nicht alles unsichtbar.
+          Man setzt hier bspw. das <a href="https://de.wikipedia.org/wiki/Favicon">Favicon</a> und den <a href=https://wiki.selfhtml.org/wiki/HTML/Kopfdaten/title">Titel der Seite</a>, der bspw. im Browsertab angezeigt wird.
+          </p>
+          <p>
+          Für uns ist ein folgender Header zweckdienlich: <!-- verwende den <head> von dieser Seite -->
+          <pre>
+              <code>
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+
+  &lt;title&gt;Unsere Eigene Website&lt;/title&gt;
+
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=no&quot; /&gt;
+
+  &lt;link rel=&quot;stylesheet&quot;    type=&quot;text/css&quot;     href=&quot;style.css&quot; /&gt;
+
+  &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;favicon.ico&quot; /&gt;
+  &lt;link rel=&quot;icon&quot;          type=&quot;image/x-icon&quot; href=&quot;favicon.ico&quot; /&gt;
+
+  &lt;meta name=&quot;description&quot; content=&quot;Notes about HTML5 and CSS.&quot; /&gt;
+  &lt;meta name=&quot;keywords&quot; content=&quot;HTML, CSS&quot; /&gt;
+  &lt;meta name=&quot;author&quot; content=&quot;all: Michael Kopp; Michael.Kopp@lichtenstern.info&quot; /&gt;
+  &lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot; /&gt;
+
+&lt;/head&gt;
+              </code>
+          </pre>
+          </p>
+      </section>
+      <aside>
+          <p>
+          Mit den Favicons ist es nicht so einfach:
+          Wie man <a href="https://wiki.selfhtml.org/wiki/Grafik/Favicon">hier</a> sieht, braucht man das gleiche Bild in 4 Ausfertigungen/Auflösungen und mit verschiedenen Dateinamen, damit es auf allen Browsern richtig angezeigt wird.
+          Der hier gezeigte Header würde nicht mit allen Browsern funktionieren.
+          </p>
+          <p>
+          Seiten wie <a href="https://www.favicon-generator.org/">favicon-generator.org</a> helfen dabei, aus einem Bild die verschiedenen benötigten Bilder zu erstellen.
+          </p>
+      </aside>
+
+
+      <section>
+          <h2>Logisches Markup mit HTML</h2>
+
+          <p>In HTML beschreiben wir den logischen Inhalt eines Dokuments.</p>
+          <p>Dazu verwenden wir die logischen Tags:</p>
+          <ul>
+              <li>header: Enthält meistens Logo, Seitenname usw.</li>
+              <li>nav: Navigation für die komplette Website</li>
+              <li>footer: Zusätzliche Informationen zur Website, bspw. Copyright, Kontaktmöglichkeiten, Sitemap, ...</li>
+              <li>section: Zusammengehöriger Inhalt wird hier zusammengefasst.</li>
+              <li>aside: Anmerkungen zum Inhalt (bspw. Verweise auf Quellen oder Details)</li>
+          </ul>
+          <p>Dieser Text hier ist übrigens in einem <code>&lt;section&gt;</code> geschrieben; als erstes Element hat es eine Überschrift mit <code>&lt;h2&gt;</code>.</p>
+      </section>
+      <aside>
+          <p>Hier ist eine gute Übersicht zu den verschiedenen Elementen zum logischen Markup: <a href="https://wiki.selfhtml.org/wiki/HTML/Tutorials/HTML5/Seitenstrukturierung">Selfhtml</a>.</p>
+          <p><em>Hinweis: Dieser Text ist in einem <code>&lt;aside&gt;</code> geschrieben.</em></p>
+      </aside>
+      <aside>
+          <p>
+          Statt <code>&lt;section&gt;</code> kann man auch <code>&lt;article&gt;</code> für die einzelnen Inhalte verwenden.
+          Der Unterschied ist nicht groß und wird immer wieder diskutiert.
+          Der Konsens ist bisher, dass ein <em>article</em> für sich alleine stehen können muss, ein <em>section</em> eher im Zusammenhang mit anderen <em>section</em>s auf der Seite verstanden wird.
+          </p>
+      </aside>
+
+      <section>
+          <h2>Flexbox</h2>
+          <p>Mit Flexbox kann man mit relativ geringem Aufwand Websiten gestalten, die responsiv sind (also sich an Handy/PC anpassen).</p>
+          <p>
+          Dazu werden <em>Container</em> mit <code>display: flex;</code> im CSS definiert.
+          Die Größe der Elemente, die darin sitzen (sogenannte <em>Items</em>), werden dann vom Browser automatisch passend zu ihrem Inhalt berechnet -- bspw. wird eine Box mit wenig Text darin schmäler als eine Box mit viel Text, sodass beide die gleiche Höhe haben.
+          </p>
+      </section>
+      <aside>
+          <p>
+          <a href="https://wiki.selfhtml.org/wiki/CSS/Tutorials/Flexbox/Mehrspaltenlayout">Hier</a>
+          ist eine CSS-Datei beschrieben, mit der man diese Seite hier stylen könnte: Responsiv und mit flexboxen.
+          Dabei müsste man nur alle Vorkommnisse von <code>article</code> in dem Text durch <code>section</code> ersetzen.
+          </p>
+      </aside>
+
+      <section>
+          <h2>Tools</h2>
+
+          <section> <!-- die sections dürfen auch verschachtelt sein -->
+              <h3>Validatoren</h3>
+              <p>Validatoren helfen, Fehler in HTML oder CSS zu finden.</p>
+              <p>w3.org stellt die folgenden bereit:
+              <ul>
+                  <li><a href="https://validator.w3.org/#validate_by_input">HTML-Validator</a></li>
+                  <li><a href="https://jigsaw.w3.org/css-validator/#validate_by_input">CSS-Validator</a></li>
+              </ul>
+              </p>Man verwendet sie, indem man seinen code dort reinkopiert, alle Fehler beseitigt und dann den Code wieder in die ursprüngliche Datei einfügt.</p>
+          </section>
+
+          <section>
+              <h3>Escaper</h3>
+              <p>
+              In HTML haben manche Zeichen, wie <code>&lt;</code> eine bestimmte Bedeutung.
+              Will man sie verwenden, muss man sie <em>escapen</em>.
+              Das kann man bspw. <a href="https://www.freeformatter.com/html-escape.html">hier</a> tun.
+              </p>
+          </section>
+
+          <section>
+              <h3>Entwicklungsumgebungen</h3>
+              <ul>
+                  <li>Notepad++</li>
+                  <li>VSCode</li>
+                  <li>Chrome</li>
+              </ul>
+          </section>
+      </section>
+
+  </main>
+
+
+  <!-- sichtbare Zusatzinformationen zur Seite -->
+  <footer>
+      <p>HTML kommt von <a href="https://www.w3.org/html/">w3.org</a>, CSS <a href="http://www.w3.org/Style/CSS/">auch</a></p>
+  </footer>
+
+  </body>
+</html>
