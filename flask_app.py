@@ -23,9 +23,16 @@ def hello_world():
   <body>
     <h1>Überschrift</h1>
     <h2>kleinere Überschrift</h2>
+    <p>Hier ist Musik: <audio src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Oil_boiling.ogg" controls autoplay loop>Leider funktioniert Audio nicht</audio> -- sie sollte eigentlich automatisch starten, aber das scheint nicht immer zu funktionieren...</p>
     <p>Normaler Text -- kann auch länger sein...</p>
     <img alt="Konzert am Lichtenstern" src="https://www.evlgs.de/fileadmin/_processed_/f/5/csm_Musik_0c882e0401.jpg" />  <!-- hier wird <img> nicht durch ein </img> geschlossen, stattdessen schreiben wir <img/>, weil der Inhalt des Bildes schon im <img/> enthalten ist und nicht noch zwischen <img> und </img> eingerahmt werden muss. -->
     <p>Hier ein Link: <a href="https://www.google.de/">Hier kann man Google fragen...</a></p>
+    <p>Hier ein Gif:</p>
+    <img src="https://media.giphy.com/media/S99cgkURVO62qemEKM/giphy.gif" />
+    <p>Und hier als <code>iframe</code>:</p>
+    <iframe src="https://giphy.com/embed/S99cgkURVO62qemEKM" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <p>Hier noch was spannendes zu Arduino-Projekten:</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9ItEPmwfBqg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <form>
       <input type="text" />
       <input type="date" />
