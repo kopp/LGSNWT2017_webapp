@@ -1,7 +1,8 @@
 
 # A very simple Flask Hello World app for you to get started with...
 
-from flask import Flask, request
+from flask import Flask, request, render_template
+import urllib
 
 
 app = Flask(__name__,
@@ -33,14 +34,22 @@ def hello_world():
     <iframe src="https://giphy.com/embed/S99cgkURVO62qemEKM" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
     <p>Hier noch was spannendes zu Arduino-Projekten:</p>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/9ItEPmwfBqg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <form>
-      <input type="text" />
+    <form method="post" action="/greet_by_name">
+      <input type="text" name="eingegebener_name" />
       <input type="date" />
-      <input type="submit" />
+      <input type="submit" value="Begrüße mich mit Namen" />
     </form>
   </body>
 </html>
 """
+
+
+@app.route("/greet_by_name", methods=["POST"])
+def greet_by_name():
+    data = request.get_data().decode("utf-8")
+    parsed_data = urllib.parse.parse_qs(data)
+    name = parsed_data["eingegebener_name"][0]
+    return render_template("greet_by_name.html", name=name)
 
 
 @app.route('/adee')
