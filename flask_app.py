@@ -2,7 +2,6 @@
 # A very simple Flask Hello World app for you to get started with...
 
 from flask import Flask, request, render_template
-import urllib
 
 
 app = Flask(__name__,
@@ -26,6 +25,18 @@ def hello_world():
     <h2>kleinere Überschrift</h2>
     <p>Hier ist Musik: <audio src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Oil_boiling.ogg" controls autoplay loop>Leider funktioniert Audio nicht</audio> -- sie sollte eigentlich automatisch starten, aber das scheint nicht immer zu funktionieren...</p>
     <p>Normaler Text -- kann auch länger sein...</p>
+    <p>Sende Daten via POST</p>
+    <form method="post" action="/greet_by_name">
+      <input type="text" name="eingegebener_name" />
+      <input type="date" />
+      <input type="submit" value="Begrüße mich mit Namen" />
+    </form>
+    <p>Sende Daten via GET</p>
+    <form method="get" action="/greet_by_name">
+      <input type="text" name="eingegebener_name" />
+      <input type="date" />
+      <input type="submit" value="Begrüße mich mit Namen" />
+    </form>
     <img alt="Konzert am Lichtenstern" src="https://www.evlgs.de/fileadmin/_processed_/f/5/csm_Musik_0c882e0401.jpg" />  <!-- hier wird <img> nicht durch ein </img> geschlossen, stattdessen schreiben wir <img/>, weil der Inhalt des Bildes schon im <img/> enthalten ist und nicht noch zwischen <img> und </img> eingerahmt werden muss. -->
     <p>Hier ein Link: <a href="https://www.google.de/">Hier kann man Google fragen...</a></p>
     <p>Hier ein Gif:</p>
@@ -34,21 +45,15 @@ def hello_world():
     <iframe src="https://giphy.com/embed/S99cgkURVO62qemEKM" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
     <p>Hier noch was spannendes zu Arduino-Projekten:</p>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/9ItEPmwfBqg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <form method="post" action="/greet_by_name">
-      <input type="text" name="eingegebener_name" />
-      <input type="date" />
-      <input type="submit" value="Begrüße mich mit Namen" />
-    </form>
   </body>
 </html>
 """
 
 
-@app.route("/greet_by_name", methods=["POST"])
+@app.route("/greet_by_name", methods=["GET", "POST"])
 def greet_by_name():
-    data = request.get_data().decode("utf-8")
-    parsed_data = urllib.parse.parse_qs(data)
-    name = parsed_data["eingegebener_name"][0]
+    name = request.values.get("eingegebener_name")
+    # see https://stackoverflow.com/a/20341272/2165903
     return render_template("greet_by_name.html", name=name)
 
 
